@@ -41,16 +41,6 @@ namespace Livet.Messaging
         }
 
         /// <summary>
-        /// 派生クラスでは必ずオーバーライドしてください。Freezableオブジェクトとして必要な実装です。<br/>
-        /// 通常このメソッドは、自身の新しいインスタンスを返すように実装します。
-        /// </summary>
-        /// <returns>自身の新しいインスタンス</returns>
-        protected override Freezable CreateInstanceCore()
-        {
-            return new InformationMessage(Text,Caption,MessageKey);
-        }
-
-        /// <summary>
         /// 表示するメッセージを指定、または取得します。
         /// </summary>
         public string Text

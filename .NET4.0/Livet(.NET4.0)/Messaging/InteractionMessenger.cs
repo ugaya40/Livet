@@ -25,11 +25,6 @@ namespace Livet.Messaging
 
             if (threadSafeHandler != null)
             {
-                if (!message.IsFrozen)
-                {
-                    message.Freeze();
-                }
-
                 threadSafeHandler(this, new InteractionMessageRaisedEventArgs(message));
             }
         }
@@ -52,11 +47,6 @@ namespace Livet.Messaging
 
             if (threadSafeHandler != null)
             {
-                if (!message.IsFrozen)
-                {
-                    message.Freeze();
-                }
-
                 threadSafeHandler(this, new InteractionMessageRaisedEventArgs(message));
                 return message;
             }
@@ -82,11 +72,6 @@ namespace Livet.Messaging
                 throw new ArgumentException("messageはnullにできません");
             }
 
-            if (!message.IsFrozen)
-            {
-                message.Freeze();
-            }
-
             var task = Task.Factory.StartNew(() => Raise(message), CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
             task.ContinueWith(t =>
                 {
@@ -108,11 +93,6 @@ namespace Livet.Messaging
             if (message == null)
             {
                 throw new ArgumentException("messageはnullにできません");
-            }
-
-            if (!message.IsFrozen)
-            {
-                message.Freeze();
             }
 
             var task = Task<T>.Factory.StartNew(() => GetResponse(message));
@@ -159,11 +139,6 @@ namespace Livet.Messaging
                 throw new ArgumentException("messageはnullにできません");
             }
 
-            if (!message.IsFrozen)
-            {
-                message.Freeze();
-            }
-
             await Task.Factory.StartNew(() => Raise(message));
         }
 
@@ -178,11 +153,6 @@ namespace Livet.Messaging
             if (message == null)
             {
                 throw new ArgumentException("messageはnullにできません");
-            }
-
-            if (!message.IsFrozen)
-            {
-                message.Freeze();
             }
 
             return await Task<T>.Factory.StartNew(() => GetResponse(message));
@@ -201,11 +171,6 @@ namespace Livet.Messaging
             if (message == null)
             {
                 throw new ArgumentException("messageはnullにできません");
-            }
-
-            if (!message.IsFrozen)
-            {
-                message.Freeze();
             }
 
             var msg = await Task<T>.Factory.StartNew(() => GetResponse(message));

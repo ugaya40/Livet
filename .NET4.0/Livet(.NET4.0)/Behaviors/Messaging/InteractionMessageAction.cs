@@ -3,6 +3,7 @@ using System.Windows.Interactivity;
 
 using Livet.Messaging;
 using System.ComponentModel;
+using System.Windows.Data;
 
 namespace Livet.Behaviors.Messaging
 {
@@ -15,6 +16,19 @@ namespace Livet.Behaviors.Messaging
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1000:DoNotDeclareStaticMembersOnGenericTypes")]
     public abstract class InteractionMessageAction<T> : TriggerAction<T> where T : DependencyObject
     {
+        protected override void OnAttached()
+        {
+            base.OnAttached();
+
+            if (DirectInteractionMessage == null) return;
+
+            var frameworkElement = this.AssociatedObject as FrameworkElement;
+            if (frameworkElement == null) return;
+
+            frameworkElement.DataContextChanged += (sender, e) => DirectInteractionMessage.DataContext = e.NewValue;
+            DirectInteractionMessage.DataContext = frameworkElement.DataContext;
+        }
+
         protected override sealed void Invoke(object parameter)
         {
             if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue)) return;

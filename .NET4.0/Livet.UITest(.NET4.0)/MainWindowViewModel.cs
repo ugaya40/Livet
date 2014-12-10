@@ -14,11 +14,13 @@ namespace Livet.UITest
         public MainWindowViewModel()
         {
             Maximize = true;
+            ConfirmCaption = "キャプションバインディングテスト";
         }
 
         public void Init()
         {
             Messenger.RaiseAsync(new InformationMessage("ViewModelのInitが呼ばれました", "情報", System.Windows.MessageBoxImage.Information, "Info"));
+            
         }
 
         #region CanClose変更通知プロパティ
@@ -107,6 +109,29 @@ namespace Livet.UITest
         {
             Maximize = !Maximize;
         }
+
+
+
+
+        #region ConfirmCaption変更通知プロパティ
+        private string _ConfirmCaption;
+
+        public string ConfirmCaption
+        {
+            get
+            { return _ConfirmCaption; }
+            set
+            { 
+                if (_ConfirmCaption == value)
+                    return;
+                _ConfirmCaption = value;
+                RaisePropertyChanged("ConfirmCaption");
+            }
+        }
+        #endregion
+
+
+
 
         //public void FolderSelected(FolderSelectionMessage message)
         //{

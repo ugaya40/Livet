@@ -27,9 +27,5 @@ namespace Livet.Messaging
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(T), typeof(GenericInteractionMessage<T>), new PropertyMetadata(defaultValue: default(T)));
 
-        protected override Freezable CreateInstanceCore()
-        {
-            return new GenericInteractionMessage<T>(Value,MessageKey);
-        }
     }
 }

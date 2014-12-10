@@ -23,7 +23,7 @@ namespace Livet.Behaviors.Messaging
 
         // Using a DependencyProperty as the backing store for Message.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MessageProperty =
-            DependencyProperty.Register("Message", typeof(InteractionMessage), typeof(DirectInteractionMessage), new UIPropertyMetadata(null));
+            DependencyProperty.Register("Message", typeof(InteractionMessage), typeof(DirectInteractionMessage), new UIPropertyMetadata(MessageChanged));
 
         /// <summary>
         /// アクション実行後に実行するコマンドを指定、または取得します<br/>
@@ -67,6 +67,19 @@ namespace Livet.Behaviors.Messaging
         public static readonly DependencyProperty CallbackMethodNameProperty =
             DependencyProperty.Register("CallbackMethodName", typeof(string), typeof(DirectInteractionMessage), new UIPropertyMetadata(null));
 
+
+        public object DataContext
+        {
+            get { return (object)GetValue(DataContextProperty); }
+            set { SetValue(DataContextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DataContext.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DataContextProperty =
+            DependencyProperty.Register("DataContext", typeof(object), typeof(DirectInteractionMessage), new PropertyMetadata(DataContextChanged));
+
+        
+
         internal void InvokeCallbacks(InteractionMessage message)
         {
             if (CallbackCommand != null)
@@ -80,6 +93,24 @@ namespace Livet.Behaviors.Messaging
             {
                 _callbackMethod.Invoke(CallbackMethodTarget, CallbackMethodName, message);
             }
+        }
+
+        private static void DataContextChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            MessageChangedCore(obj, e);
+        }
+
+        private static void MessageChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            MessageChangedCore(obj, e);
+        }
+
+        private static void MessageChangedCore(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            var thisReference = obj as DirectInteractionMessage;
+            if (thisReference == null) return;
+            if (thisReference.Message == null) return;
+            thisReference.Message.DataContext = thisReference.DataContext;
         }
 
         protected override Freezable CreateInstanceCore()

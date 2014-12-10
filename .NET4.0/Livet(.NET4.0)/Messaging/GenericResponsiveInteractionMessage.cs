@@ -27,10 +27,5 @@ namespace Livet.Messaging
         // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(TValue), typeof(GenericResponsiveInteractionMessage<TValue, TResponse>), new PropertyMetadata(defaultValue: default(TValue)));
-
-        protected override Freezable CreateInstanceCore()
-        {
-            return new GenericResponsiveInteractionMessage<TValue, TResponse>(Value,MessageKey);
-        }
     }
 }

@@ -10,7 +10,7 @@
     <i:Interaction.Triggers>
         
         <i:EventTrigger EventName="ContentRendered">
-            <ei:CallMethodAction TargetObject="{Binding}" MethodName="Init"/>
+            <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="Init"/>
         </i:EventTrigger>
 
         <l:LivetDataTrigger Binding="{Binding Maximize}" Value="true">
@@ -53,7 +53,7 @@
         <Button Content="Windowの最大化・通常の切替" Width="200" Height="30" Margin="5" HorizontalAlignment="Left">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <ei:CallMethodAction TargetObject="{Binding}" MethodName="ChangeMaximize"/>
+                    <l:LivetCallMethodAction MethodTarget="{Binding}" MethodName="ChangeMaximize"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
@@ -63,7 +63,7 @@
                     <l:ConfirmationDialogInteractionMessageAction>
                         <l:DirectInteractionMessage CallbackMethodName="RequestClose" CallbackMethodTarget="{Binding}">
                             <l:ConfirmationMessage Text="本当にWindowを閉じますか？" 
-                                                   Caption="確認"
+                                                   Caption="{Binding ConfirmCaption}"
                                                    Button="YesNo"
                                                    Image="Question"/>
                         </l:DirectInteractionMessage>

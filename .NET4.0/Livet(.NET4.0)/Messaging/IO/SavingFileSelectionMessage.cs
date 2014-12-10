@@ -20,16 +20,6 @@ namespace Livet.Messaging.IO
         }
 
         /// <summary>
-        /// 派生クラスでは必ずオーバーライドしてください。Freezableオブジェクトとして必要な実装です。<br/>
-        /// 通常このメソッドは、自身の新しいインスタンスを返すように実装します。
-        /// </summary>
-        /// <returns>自身の新しいインスタンス</returns>
-        protected override Freezable CreateInstanceCore()
-        {
-            return new SavingFileSelectionMessage(MessageKey);
-        }
-
-        /// <summary>
         /// ユーザーが存在しないファイルを指定した場合に、ファイルを作成することを確認するメッセージを表示するかどうかを指定、または取得します。デフォルトはfalseです。
         /// </summary>
         public bool CreatePrompt

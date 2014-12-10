@@ -103,10 +103,6 @@ namespace Livet.Behaviors.Messaging
         {
             var message = e.Message;
 
-            var cloneMessage = (InteractionMessage)message.Clone();
-
-            cloneMessage.Freeze();
-
             var checkResult = false;
 
             Action checkAction = () =>
@@ -115,7 +111,7 @@ namespace Livet.Behaviors.Messaging
 
                     if (InvokeActionsOnlyWhileAttatchedObjectLoaded && (!_loaded)) return;
 
-                    if (!(string.IsNullOrEmpty(MessageKey) || MessageKey == cloneMessage.MessageKey)) return;
+                    if (!(string.IsNullOrEmpty(MessageKey) || MessageKey == message.MessageKey)) return;
 
                     checkResult = true;
                 };
@@ -127,16 +123,7 @@ namespace Livet.Behaviors.Messaging
                 return;
             }
 
-            DoActionOnDispatcher(() => InvokeActions(cloneMessage));
-
-            var responsiveMessage = message as ResponsiveInteractionMessage;
-
-            object response;
-            if (responsiveMessage != null &&
-                (response = ((ResponsiveInteractionMessage)cloneMessage).Response) != null)
-            {
-                responsiveMessage.Response = response;
-            }
+            DoActionOnDispatcher(() => InvokeActions(message));
         }
 
         private void DoActionOnDispatcher(Action action)

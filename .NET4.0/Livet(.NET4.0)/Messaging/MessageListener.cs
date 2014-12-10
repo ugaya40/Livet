@@ -63,23 +63,10 @@ namespace Livet.Messaging
 
             var message = e.Message;
 
-            var cloneMessage = (InteractionMessage)message.Clone();
-
-            cloneMessage.Freeze();
-
             DoActionOnDispatcher(() =>
                 {
-                    GetValue(e, cloneMessage);
+                    GetValue(e, message);
                 });
-
-            var responsiveMessage = message as ResponsiveInteractionMessage;
-
-            object response;
-            if (responsiveMessage != null &&
-                (response = ((ResponsiveInteractionMessage)cloneMessage).Response) != null)
-            {
-                responsiveMessage.Response = response;
-            }
         }
 
         private void GetValue(InteractionMessageRaisedEventArgs e, InteractionMessage cloneMessage)

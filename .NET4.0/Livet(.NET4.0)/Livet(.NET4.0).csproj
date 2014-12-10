@@ -207,6 +207,7 @@
     <Compile Include="Behaviors\RoutedEventTrigger.cs" />
     <Compile Include="Behaviors\SetFocusAction.cs" />
     <Compile Include="Behaviors\WindowCloseCancelBehavior.cs" />
+    <Compile Include="BindingExtensions.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\ViewModelCommand.cs" />
     <Compile Include="Commands\ListenerCommand.cs" />

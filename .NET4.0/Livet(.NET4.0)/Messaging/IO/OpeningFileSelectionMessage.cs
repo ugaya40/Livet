@@ -21,16 +21,6 @@ namespace Livet.Messaging.IO
         }
 
         /// <summary>
-        /// 派生クラスでは必ずオーバーライドしてください。Freezableオブジェクトとして必要な実装です。<br/>
-        /// 通常このメソッドは、自身の新しいインスタンスを返すように実装します。
-        /// </summary>
-        /// <returns>自身の新しいインスタンス</returns>
-        protected override Freezable CreateInstanceCore()
-        {
-            return new OpeningFileSelectionMessage(MessageKey);
-        }
-
-        /// <summary>
         /// 複数ファイルを選択可能かを取得、または設定します。
         /// </summary>
         public bool MultiSelect
