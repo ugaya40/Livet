@@ -500,6 +500,9 @@
     <Compile Include="..\..\.NET4.0\Livet%28.NET4.0%29\Behaviors\WindowCloseCancelBehavior.cs">
       <Link>Behaviors\WindowCloseCancelBehavior.cs</Link>
     </Compile>
+    <Compile Include="..\..\.NET4.0\Livet%28.NET4.0%29\BindingExtensions.cs">
+      <Link>BindingExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\..\.NET4.0\Livet%28.NET4.0%29\Commands\Command.cs">
       <Link>Commands\Command.cs</Link>
     </Compile>
