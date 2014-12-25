@@ -18,4 +18,4 @@ In addition, since Livet is developed by Japanese, there are few English documen
 
 ##Contacts
 ---
-[Livet Project Home (Japanese)](http://ugaya40.net/Livet)
+[Livet Project Home (Japanese)](http://ugaya40.hateblo.jp/entry/Livet)
