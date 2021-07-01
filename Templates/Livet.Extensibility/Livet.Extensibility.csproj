@@ -102,12 +102,6 @@
     <Content Include="stylesheet.css" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ItemTemplates\Livet.ItemTemplateExtension\Livet.ItemTemplateExtension.csproj">
-      <Project>{37A0605C-C950-4446-9B2A-94E6B3D6C0B5}</Project>
-      <Name>Livet.ItemTemplateExtension</Name>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
-    </ProjectReference>
     <ProjectReference Include="..\ItemTemplates\LivetInteractionMessageAction.CSharp\LivetInteractionMessageAction.CSharp.csproj">
       <Project>{A05A0E54-4F4C-48E8-94C2-551F0B0C959A}</Project>
       <Name>LivetInteractionMessageAction.CSharp</Name>

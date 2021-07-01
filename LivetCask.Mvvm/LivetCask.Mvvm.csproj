@@ -35,10 +35,6 @@ It supports .NET Framework 4.5.2 or later, .NET Core 3.1, and licensed as zlib/l
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\license-en.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

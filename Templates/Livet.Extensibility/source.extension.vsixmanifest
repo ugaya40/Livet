@@ -3,7 +3,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Livet.Extensibility.084f01b5-62d7-4528-8c21-e58fe0e6ba24" Version="3.2.1.2" Language="en-US"
+        <Identity Id="Livet.Extensibility.084f01b5-62d7-4528-8c21-e58fe0e6ba24" Version="3.3.0.0" Language="en-US"
                   Publisher="Kazuki Ohta" />
         <DisplayName>Livet</DisplayName>
         <Description xml:space="preserve">Provide a project template, item templates and code snippets for development WPF app using Livet and C#.</Description>
@@ -14,8 +14,13 @@
         <Tags>WPF, MVVM, Livet</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
-    </Installation>
+		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 18.0)">
+			<ProductArchitecture>x86</ProductArchitecture>
+		</InstallationTarget>
+		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 18.0)">
+			<ProductArchitecture>amd64</ProductArchitecture>
+		</InstallationTarget>
+	</Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
     </Dependencies>
@@ -41,15 +46,12 @@
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="LivetWindow.CSharp"
                d:TargetPath="|LivetWindow.CSharp;TemplateProjectOutputGroup|" Path="ItemTemplates"
                d:VsixSubPath="ItemTemplates" />
-        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Livet.ItemTemplateExtension"
-               Path="|Livet.ItemTemplateExtension|" AssemblyName="|Livet.ItemTemplateExtension;AssemblyName|" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project"
                d:ProjectName="Livet.ProjectTemplate.CSharp.NETCore"
                d:TargetPath="|Livet.ProjectTemplate.CSharp.NETCore;TemplateProjectOutputGroup|" Path="ProjectTemplates"
                d:VsixSubPath="ProjectTemplates" />
     </Assets>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0, 17.0)"
-                      DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0, 18.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
 </PackageManifest>

@@ -22,8 +22,4 @@
       <CustomParameter Name="$basename$" Value="$fileinputname$" />
     </CustomParameters>
   </TemplateContent>
-  <WizardExtension>
-    <Assembly>Livet.ItemTemplateExtension, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb</Assembly>
-    <FullClassName>Livet.ItemTemplateExtension.ItemTemplateWizard</FullClassName>
-  </WizardExtension>
 </VSTemplate>

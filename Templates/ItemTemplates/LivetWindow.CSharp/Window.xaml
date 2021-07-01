@@ -3,14 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
-        xmlns:v="clr-namespace:$projectrootnamespace$.Views"
-        xmlns:vm="clr-namespace:$projectrootnamespace$.ViewModels"
+        xmlns:v="clr-namespace:$rootnamespace$"
         Title="$safeitemname$" Height="350" Width="525">
 
+    <!--
+    If you want to add a ViewModel class to DataContext, then please add your ViewModels namespace to the Window tag like below.
+    xmlns:vm="clr-namespace:YourViewModelNamespace"
+    
+    And then add the following tag.
     <Window.DataContext>
         <vm:$safeitemname$ViewModel />
     </Window.DataContext>
-
+    -->
     <behaviors:Interaction.Triggers>
         <!-- When ContentRendered event raised, Initialize method of ViewModel would be called. -->
         <behaviors:EventTrigger EventName="ContentRendered">

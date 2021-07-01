@@ -11,8 +11,6 @@ using Livet.Messaging.IO;
 using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
-using $projectrootnamespace$.Models;
-
 namespace $rootnamespace$
 {
     public class $safeitemname$ : ViewModel
